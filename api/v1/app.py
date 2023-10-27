@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-entry point of our application
+ In this file we entry point of our application
 """
 
 from os import getenv
@@ -19,7 +19,7 @@ cors = CORS(app, resources={r"/api/v1/*": {"origins": "0.0.0.0"}})
 @app.teardown_appcontext
 def teardown(exception):
     """
-    a method that closes the storage
+    This Function to do a method that closes the storage
     """
     storage.close()
 
@@ -27,7 +27,7 @@ def teardown(exception):
 @app.errorhandler(404)
 def error_404(error):
     """
-    handles the error
+    Here we handle the error
     """
     return jsonify({
         'error': 'Not found'
