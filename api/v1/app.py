@@ -19,7 +19,7 @@ cors = CORS(app, resources={r"/api/v1/*": {"origins": "0.0.0.0"}})
 @app.teardown_appcontext
 def teardown(exception):
     """
-    a method that closes the storage
+    This a method that closes the storage
     """
     storage.close()
 
@@ -27,7 +27,7 @@ def teardown(exception):
 @app.errorhandler(404)
 def error_404(error):
     """
-    handles the error
+    We handle the error
     """
     return jsonify({
         'error': 'Not found'
