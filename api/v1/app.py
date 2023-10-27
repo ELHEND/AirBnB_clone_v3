@@ -2,6 +2,8 @@
 """
 Flask App that integrates with AirBnB static HTML Template
 """
+from flask import Flask
+from flask_blueprint import Blueprint
 from api.v1.views import app_views
 from flask import Flask, jsonify, make_response, render_template, url_for
 from flask_cors import CORS, cross_origin
@@ -26,7 +28,20 @@ cors = CORS(app, resources={r'/*': {'origins': host}})
 
 # app_views BluePrint defined in api.v1.views
 app.register_blueprint(app_views)
+app = Flask(__name__)
 
+app_views = Blueprint('app_views', __name__, url_prefix='/api/v1')
+
+@app_views.route('/status', methods=['GET'])
+def status():
+  return {
+    'status': 'OK'
+  }
+
+app.register_blueprint(app_views)
+
+if __name__ == '__main__':
+  app.run(debug=True)
 
 # begin flask page rendering
 @app.teardown_appcontext
