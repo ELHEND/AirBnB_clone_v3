@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-return status of the page
+return status of the page which we selected it
 """
 
 from flask import jsonify
@@ -16,7 +16,7 @@ from models.user import User
 
 @app_views.route('/status', methods=['GET'])
 def get_status():
-    """Retrive response status"""
+    """In this route we retrive response status """
     return jsonify({
         'status': 'OK'
     })
@@ -24,7 +24,7 @@ def get_status():
 
 @app_views.route('/stats', methods=['GET'])
 def get_stats():
-    """retrieves the number of each objects by type"""
+    """In this route we retrieves the number of each objects by type"""
 
     return jsonify({
         "amenities": storage.count(Amenity),
