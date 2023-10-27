@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
- In this file we entry point of our application
+entry point of our application
 """
 
 from os import getenv
@@ -19,7 +19,7 @@ cors = CORS(app, resources={r"/api/v1/*": {"origins": "0.0.0.0"}})
 @app.teardown_appcontext
 def teardown(exception):
     """
-    This a method that closes the storage
+    a method that closes the storage
     """
     storage.close()
 
@@ -27,7 +27,7 @@ def teardown(exception):
 @app.errorhandler(404)
 def error_404(error):
     """
-    We handle the error
+    handles the error
     """
     return jsonify({
         'error': 'Not found'
@@ -44,4 +44,5 @@ if __name__ == '__main__':
         port = getenv('HBNB_API_PORT')
     else:
         port = 5000
+
     app.run(host=host, port=port, threaded=True)
