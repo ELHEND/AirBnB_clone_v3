@@ -28,7 +28,7 @@ def get_state(state_id):
 
 
 @app_views.route('/states/<state_id>', methods=['DELETE'],
-            strict_slashes=False)
+                 strict_slashes=False)
 def delete_state(state_id):
     """Delete state by id"""
     try:
@@ -57,7 +57,7 @@ def create_state():
 
 @app_views.route('/states/<state_id>', methods=['PUT'], strict_slashes=False)
 def update_state(state_id):
-    """Update state object with the provided id"""
+    """Update the state object with the provided id"""
     data = request.get_json()
     if not data:
         abort(400, "Not a JSON")
@@ -65,7 +65,9 @@ def update_state(state_id):
     state = storage.get(State, state_id)
     if not state:
         abort(404)
+
     ignore_keys = ['id', 'created_id', 'updated_at']
+
     for key, value in data.items():
         if key not in ignore_keys:
             setattr(state, key, value)
