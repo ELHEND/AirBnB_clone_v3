@@ -1,4 +1,6 @@
  #!/usr/bin/python3
+
+
 """
 view for the cities
 """
