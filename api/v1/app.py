@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""this is flask app"""
+"""this is the flask app"""
 
 
 from flask import Flask, jsonify
