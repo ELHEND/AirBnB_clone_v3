@@ -16,7 +16,7 @@ app.url_map.strict_slashes = False
 
 @app.teardown_appcontext
 def close(self):
-    """This close session"""
+    """This is close session"""
     storage.close()
 
 
