@@ -1,35 +1,16 @@
 #!/usr/bin/python3
-"""this is flask app"""
+"""
+Module for views
+"""
+from flask import Blueprint
 
 
-from flask import Flask, jsonify
-from models import storage
-from os import getenv
-from api.v1.views import app_views
-
-app = Flask(__name__)
-app.register_blueprint(app_views)
-app.url_map.strict_slashes = False
-
-
-@app.teardown_appcontext
-def close(self):
-    """This is the close session"""
-    storage.close()
-
-
-@app.errorhandler(404)
-def page_not_found(error):
-    """In this a route of return render_template"""
-    data = {'error': 'Not found'}
-    return jsonify(data), 404
-
-
-if __name__ == '__main__':
-    host = getenv('HBNB_API_HOST')
-    port = getenv('HBNB_API_PORT')
-    if not host:
-        host = '0.0.0.0'
-    if not port:
-        port = 5000
-    app.run(host=host, port=port, threaded=True)
+app_views = Blueprint("mold", __name__, url_prefix="/api/v1")
+from api.v1.views.index import *
+from api.v1.views.states import *
+from api.v1.views.cities import *
+from api.v1.views.amenities import *
+from api.v1.views.places import *
+from api.v1.views.users import *
+from api.v1.views.places_reviews import *
+from api.v1.views.places_amenities import *
