@@ -1,31 +1,26 @@
 #!/usr/bin/python3
-"""the index file"""
+"""
+Module for index
+"""
 from api.v1.views import app_views
 from flask import jsonify
-from models import storage
-from models.amenity import Amenity
-from models.city import City
-from models.place import Place
-from models.review import Review
-from models.state import State
-from models.user import User
+import models
 
 
-@app_views.route('/status', strict_slashes=False)
-def statusok():
-    """status home page"""
-    return jsonify(status='OK'), 200
+@app_views.route("/status")
+def status():
+    """Returns the status OK"""
+    return jsonify({"status": "OK"})
 
 
-@app_views.route('/stats', strict_slashes=False)
-def statssok():
-    """stats home page"""
-    data = {
-            "amenities": storage.count(Amenity),
-            "cities": storage.count(City),
-            "places": storage.count(Place),
-            "reviews": storage.count(Review),
-            "states": storage.count(State),
-            "users": storage.count(User),
-           }
-    return jsonify(data), 200
+@app_views.route("/stats")
+def stats():
+    """Returns the stats"""
+    classes = {"Amenity": "amenities", "City": "cities",
+               "User": "users", "Place": "places",
+               "Review": "reviews",
+               "State": "states"}
+    new_dict = map(lambda tpl: (tpl[1],
+                                models.storage.count(tpl[0])),
+                   classes.items())
+    return jsonify(dict(new_dict))
