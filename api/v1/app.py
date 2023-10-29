@@ -22,7 +22,7 @@ def close(self):
 
 @app.errorhandler(404)
 def page_not_found(error):
-    """In this return render_template"""
+    """In this route return render_template"""
     data = {'error': 'Not found'}
     return jsonify(data), 404
 
