@@ -3,6 +3,7 @@
 entry point of our application
 """
 
+
 from os import getenv
 
 from flask import Flask, jsonify
