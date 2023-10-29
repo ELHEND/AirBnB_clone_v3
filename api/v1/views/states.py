@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-view for the states
+view for  states
 """
 
 from flask import abort, request, make_response, jsonify
