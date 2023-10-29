@@ -44,7 +44,7 @@ def delete_user(user_id):
 
 @app_views.route('/users', methods=['POST'], strict_slashes=False)
 def create_user():
-    """Post new user object"""
+    """Post new  user object"""
     data = request.get_json()
     if not data:
         abort(400, "Not a JSON")
