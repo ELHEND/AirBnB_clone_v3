@@ -15,13 +15,13 @@ from models.user import User
 
 @app_views.route('/status', strict_slashes=False)
 def statusok():
-    """This is status home page"""
+    """This is status a home page"""
     return jsonify(status='OK'), 200
 
 
 @app_views.route('/stats', strict_slashes=False)
 def statssok():
-    """This is stats home page"""
+    """This is stats a home page"""
     data = {
             "amenities": storage.count(Amenity),
             "cities": storage.count(City),
