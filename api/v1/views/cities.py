@@ -1,21 +1,10 @@
-<<<<<<< HEAD
- #!/usr/bin/python3
-
-
-"""
-view for the cities
-"""
-from models import storage
-=======
 #!/usr/bin/python3
 """comment for city ile"""
 
->>>>>>> 8edf304ccd0525b54e27c1882e167a7489f1cfae
 from api.v1.views import app_views
 from flask import jsonify, abort, request
 from models import storage
 from models.city import City
-from models.state import State
 
 
 @app_views.route('/states/<state_id>/cities', methods=['GET'],
@@ -89,4 +78,3 @@ def createcity(state_id):
     storage.new(stateObject)
     storage.save()
     return jsonify(stateObject.to_dict()), '201'
-
