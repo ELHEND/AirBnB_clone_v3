@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""View to handle all Users objects"""
+"""View to the handle all Users objects"""
 
 from models import storage
 from api.v1.views import app_views
