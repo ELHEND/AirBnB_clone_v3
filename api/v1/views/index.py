@@ -15,7 +15,7 @@ from models.user import User
 
 @app_views.route('/status', strict_slashes=False)
 def statusok():
-    """status home page"""
+    """This status home page"""
     return jsonify(status='OK'), 200
 
 
