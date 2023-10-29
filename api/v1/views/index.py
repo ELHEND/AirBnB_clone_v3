@@ -21,7 +21,7 @@ def statusok():
 
 @app_views.route('/stats', strict_slashes=False)
 def statssok():
-    """stats home page"""
+    """This stats home page"""
     data = {
             "amenities": storage.count(Amenity),
             "cities": storage.count(City),
