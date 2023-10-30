@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""View to handle all place objects"""
+"""View to the handle all place objects"""
 
 
 from models import storage
