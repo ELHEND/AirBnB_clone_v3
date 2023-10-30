@@ -1,19 +1,26 @@
 #!/usr/bin/python3
-"""View to handle users review"""
+"""View to the handle users review"""
+
 
 from models import storage
+
 from api.v1.views import app_views
+
 from models.base_model import BaseModel
+
 from flask import jsonify, abort, request, make_response
+
 from models.place import Place
+
 from models.review import Review
+
 from models.user import User
 
 
 @app_views.route('/places/<place_id>/reviews',
                  methods=['GET'], strict_slashes=False)
 def get_review_place(place_id):
-    """Retrieve all review objects related to a place"""
+    """Retrieve all review objects related to  place"""
     place = storage.get(Place, place_id)
     if not place:
         abort(404)
@@ -23,7 +30,7 @@ def get_review_place(place_id):
 
 @app_views.route('/reviews/<review_id>', methods=['GET'], strict_slashes=False)
 def get_review(review_id):
-    """ Retrieves a review """
+    """ Retrieves  review """
     review = storage.get(Review, review_id)
     if not review:
         abort(404)
