@@ -1,9 +1,12 @@
 #!/usr/bin/python
-""" holds class City"""
+""" holds the  class City"""
+
 import models
 from models.base_model import BaseModel, Base
+
 from os import getenv
 import sqlalchemy
+
 from sqlalchemy import Column, String, ForeignKey
 from sqlalchemy.orm import relationship
 
