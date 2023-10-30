@@ -2,17 +2,11 @@
 """
 Place Class from Models Module
 """
+
 import os
 from models.base_model import BaseModel, Base
-<<<<<<< HEAD
-
-from os import getenv
-import sqlalchemy
-from sqlalchemy import Column, String, Integer, Float, ForeignKey, Table
-
-=======
->>>>>>> d6e3a1f4d13176ba31367c4124caca97c19ae1fb
 from sqlalchemy.orm import relationship
+
 from sqlalchemy import Column, Integer, String, Float, ForeignKey,\
     MetaData, Table, ForeignKey
 from sqlalchemy.orm import backref
@@ -20,7 +14,7 @@ STORAGE_TYPE = os.environ.get('HBNB_TYPE_STORAGE')
 
 if STORAGE_TYPE == "db":
     class PlaceAmenity(Base):
-        """ PlaceAmenity Class """
+        """ the  PlaceAmenity Class """
         __tablename__ = 'place_amenity'
         metadata = Base.metadata
         place_id = Column(String(60),
@@ -34,13 +28,8 @@ if STORAGE_TYPE == "db":
 
 
 class Place(BaseModel, Base):
-<<<<<<< HEAD
-    """ the Representation of Place """
-    if models.storage_t == 'db':
-=======
     """Place class handles all application places"""
     if STORAGE_TYPE == "db":
->>>>>>> d6e3a1f4d13176ba31367c4124caca97c19ae1fb
         __tablename__ = 'places'
         city_id = Column(String(60), ForeignKey('cities.id'), nullable=False)
         user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
