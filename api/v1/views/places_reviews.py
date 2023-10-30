@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""View to handle users review"""
+"""View to the handle users review"""
 
 from models import storage
 from api.v1.views import app_views
