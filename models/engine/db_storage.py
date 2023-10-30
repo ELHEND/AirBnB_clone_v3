@@ -4,12 +4,16 @@ Contains the class DBStorage
 """
 
 import models
+
 from models.amenity import Amenity
 from models.base_model import BaseModel, Base
+
 from models.city import City
 from models.place import Place
+
 from models.review import Review
 from models.state import State
+
 from models.user import User
 from os import getenv
 import sqlalchemy
@@ -21,12 +25,12 @@ classes = {"Amenity": Amenity, "City": City,
 
 
 class DBStorage:
-    """interaacts with the MySQL database"""
+    """interaacts with  MySQL database"""
     __engine = None
     __session = None
 
     def __init__(self):
-        """Instantiate a DBStorage object"""
+        """Instantiate  DBStorage object"""
         HBNB_MYSQL_USER = getenv('HBNB_MYSQL_USER')
         HBNB_MYSQL_PWD = getenv('HBNB_MYSQL_PWD')
         HBNB_MYSQL_HOST = getenv('HBNB_MYSQL_HOST')
