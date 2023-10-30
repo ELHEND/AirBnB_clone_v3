@@ -20,7 +20,7 @@ from models.user import User
 @app_views.route('/places/<place_id>/reviews',
                  methods=['GET'], strict_slashes=False)
 def get_review_place(place_id):
-    """Retrieve all review objects related to a place"""
+    """Retrieve all review objects related to  place"""
     place = storage.get(Place, place_id)
     if not place:
         abort(404)
